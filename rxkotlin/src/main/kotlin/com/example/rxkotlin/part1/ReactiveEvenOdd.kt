@@ -19,3 +19,7 @@ fun main(args: Array<String>) {
 }
 
 inline fun isEven2(n:Int):Boolean = ((n % 2) == 0)
+
+
+//The number is Even
+//The number is Odd

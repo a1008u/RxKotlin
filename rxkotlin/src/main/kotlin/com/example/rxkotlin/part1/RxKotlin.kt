@@ -29,3 +29,9 @@ fun main(args: Array<String>) {
 }
 
 
+//【Not use RxKotlin】-----------------------------------
+//One 2 Three Four 4.5 Five 6.0
+//One 2 Three Four 4.5 Five 6.0
+//【Use RxKotlin】--------------------------------------
+//One 2 Three Four 4.5 Five 6.0 Done!
+

@@ -13,3 +13,6 @@ fun main(args: Array<String>) {
 }
 
 fun isEven(n:Int):Boolean = ((n % 2) == 0)
+
+//The number is Even
+//The number is Even
