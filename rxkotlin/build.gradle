@@ -39,8 +39,10 @@ dependencies {
     compile group: 'io.reactivex.rxjava2', name: 'rxkotlin', version: '2.2.0'
 
     compile group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core', version: '0.21'
+
     //RxJava - Apache - HTTP
     compile "com.netflix.rxjava:rxjava-apache-http:0.20.7"
+
     //Kotlin-Test
     testCompile 'junit:junit:4.12'
     testCompile "org.mockito:mockito-core:1.9.5"
@@ -50,6 +52,8 @@ dependencies {
 
     //Reactor Core
     compile 'io.projectreactor:reactor-core:3.1.1.RELEASE'
+
+	compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
 
 
 
