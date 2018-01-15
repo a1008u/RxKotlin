@@ -5,6 +5,15 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.runBlocking
 
+/**
+ * 標準で用意されているSchedulers
+    Scheduler	動作
+    computation	CPUバウンド用スレッドを生成する。データの加工など向け。コア数と同じ数のキャッシュされたスレッドを使ってイベント処理をする。I/O処理ってはいけない。
+    io	        I/Oバウンド用のスレッドを生成する。DBアクセスなど向け。1つだけキャッシュされているスレッドを使ってイベント処理を行う。
+    trampoline	ThredLocalに処理をキューイングし現在実行中の処理が完了したら逐次実行する。
+    immediate	現在のスレッドを使ってイベントを処理する。処理を遅延することはできるがキューイングすることはできない。
+    newThread	作業単位ごとに新しいスレッドを作ってイベントを処理する。
+ */
 fun main(args: Array<String>) {
     val observable = Observable.just(1,2,3,4,5,6,7,8,9)//(1)
 

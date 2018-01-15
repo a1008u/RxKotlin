@@ -6,9 +6,7 @@ import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.runBlocking
 
 fun main(args: Array<String>) {
-    val flowable = Flowable.generate<Int> {
-        it.onNext(GenerateFlowableItem.item)
-    }//(1)
+    val flowable = Flowable.generate<Int> { it.onNext(GenerateFlowableItem.item) }//(1)
 
     flowable.map { MyItemFlowable(it) }
             .observeOn(Schedulers.io())

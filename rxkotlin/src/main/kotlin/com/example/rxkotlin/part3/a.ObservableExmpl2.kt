@@ -1,4 +1,4 @@
-package com.rivuchk.packtpub.reactivekotlin.chapter03
+package com.example.rxkotlin.part3
 
 import io.reactivex.Observable
 import io.reactivex.Observer

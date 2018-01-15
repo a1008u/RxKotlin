@@ -7,7 +7,13 @@ import io.reactivex.Flowable
 import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.runBlocking
 
-
+/*
+Subscriberの設定可能メソッド
+- onSubscribe
+- onNext
+- onError
+- onComplete
+*/
 fun main(args: Array<String>) {
     Flowable.range(1, 15)
             .map { MyItem6(it) }
@@ -15,11 +21,13 @@ fun main(args: Array<String>) {
             .subscribe(object : Subscriber<MyItem6> {
                 lateinit var subscription: Subscription//(1)
 
+                // 最初に受け取るデータ数を指定
                 override fun onSubscribe(subscription: Subscription) {
                     this.subscription = subscription
                     subscription.request(5)//(2)
                 }
 
+                // 処理が続く場合は、再度リクエストを設定する必要がある(subscriptionが必要)
                 override fun onNext(s: MyItem6?) {
                     runBlocking { delay(50) }
                     println("Subscriber received " + s!!)
@@ -32,6 +40,8 @@ fun main(args: Array<String>) {
                 override fun onError(e: Throwable) = e.printStackTrace()
                 override fun onComplete() = println("Done!")
             })
+
+    // 実行
     runBlocking { delay(10000) }
 }
 

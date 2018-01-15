@@ -3,8 +3,6 @@ package com.example.rxkotlin.part3
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
-import io.reactivex.rxkotlin.subscribeBy
-
 
 /**
  * Created by AU on 1/10/2018.

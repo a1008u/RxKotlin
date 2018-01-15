@@ -5,6 +5,17 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.runBlocking
 
+/**
+ * observeOn()
+ * これを呼んだ以降の処理を指定したスレッドで処理します。
+ * よく使うスレッド（スケジューラー）はSchedulersクラスで用意されています。
+ *
+ *
+ * subscribeOn()
+ * Observableでデータを作る処理をどのスレッドで実行するかを指定するメソッドです。
+ * チェーンのどこで呼んでもかまいません。
+ *
+ */
 fun main(args: Array<String>) {
    Flowable.range(1,1000)//(1)
             .map { MyItem4(it) }//(2)
