@@ -25,7 +25,7 @@ fun main(args: Array<String>) {
     )
 
     //5
-    subject.onNext(5)
+    subject.onNext(2)
 
     //6
     subject.onComplete()

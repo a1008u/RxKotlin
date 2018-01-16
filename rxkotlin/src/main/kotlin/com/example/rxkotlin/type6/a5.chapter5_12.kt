@@ -8,6 +8,12 @@ import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.runBlocking
 import java.util.concurrent.TimeUnit
 
+
+/**
+ * takeメソッドは引数に指定したデータ数や期間に達するまで、受け取ったデータを通知するオペレータです。
+ * 指定したデータ数や期間に達したら、完了を通知して処理を終了します。
+ * もし、指定した範囲が元の生産者が通知するデータ数より多い場合、元のデータをすべて通知して、完了します。
+ */
 fun main(args: Array<String>) {
     val observable1 = Observable.range(1,20)
     observable1

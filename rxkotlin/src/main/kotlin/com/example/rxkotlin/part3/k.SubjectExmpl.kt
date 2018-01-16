@@ -10,6 +10,12 @@ import java.util.concurrent.TimeUnit
  * Created by AU on 1/11/2018.
  */
 
+/**
+ * Subject
+ * 「SubscriberとObservableの2つの機能を併せ持ったもの」です。
+ * SubscriberにあるようなonNextやonError、onCompleteといったメソッドを呼び出せ、
+ * Observableのようにsubscribeメソッドを呼び出すことができます。
+ */
 fun main(args: Array<String>) {
     val observable = Observable.interval(100, TimeUnit.MILLISECONDS)//1
     val subject = PublishSubject.create<Long>()//2

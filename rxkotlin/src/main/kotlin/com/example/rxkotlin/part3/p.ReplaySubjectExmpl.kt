@@ -1,17 +1,16 @@
 package com.example.rxkotlin.part3
 
-import io.reactivex.Observable
-import io.reactivex.subjects.AsyncSubject
-import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.ReplaySubject
-import kotlinx.coroutines.experimental.delay
-import kotlinx.coroutines.experimental.runBlocking
-import java.util.concurrent.TimeUnit
 
 /**
  * Created by AU on 1/11/2018.
  */
 
+/**
+ * 送出した値を全てキャッシュするSubjectです。
+ * OnNext()が呼び出される度に値をため込み、Subscribeされた時、それまでため込んだ値を全て送出します。
+ * こちらもキャッシュの送出後はノーマルのSubjectと同様な挙動になります。
+ */
 fun main(args: Array<String>) {
     val subject = ReplaySubject.create<Int>()
     subject.onNext(1)

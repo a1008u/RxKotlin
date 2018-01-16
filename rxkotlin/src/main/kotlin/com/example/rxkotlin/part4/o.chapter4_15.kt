@@ -14,9 +14,10 @@ fun main(args: Array<String>) {
             .map { MyItem13(it) }
             .observeOn(Schedulers.io())
             .subscribe{
-                print("-> $it;\t")
+                println("-> $it;\t")
                 runBlocking { delay(100) }
             }
+
     runBlocking { delay(600000) }
 }
 
@@ -25,3 +26,4 @@ data class MyItem13 (val id:Int) {
         print("init $id;\t")
     }
 }
+

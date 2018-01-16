@@ -7,6 +7,11 @@ import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.runBlocking
 import java.util.concurrent.TimeUnit
 
+/**
+ * skipメソッドは最初に通知されるデータから指定した分だけのデータをのぞき、その後からのデータを通知するオペレータです。
+ * スキップする範囲はデータ数や経過時間を指定できます。
+ * もし、指定した範囲が元のFlowable／Observableが通知するデータ数より多い場合、データを通知することなく完了を通知して処理を終了します。
+ */
 fun main(args: Array<String>) {
     // skip(count:Long)
     val observable1 = Observable.range(1,20)

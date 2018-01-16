@@ -6,6 +6,13 @@ import io.reactivex.subjects.BehaviorSubject
  * Created by AU on 1/11/2018.
  */
 
+/**
+ * 最新の値をキャッシュするSubjectです。
+ * インスタンスの生成時に初期値を与える必要があります。
+ * 以降は、OnNext()が呼び出される度に最新の値をキャッシュして、
+ * Subscribeされた時は、キャッシュされた最新の値を即座に送出します。
+ * キャッシュの送出後はノーマルのSubjectと同様な挙動になります。
+ */
 fun main(args: Array<String>) {
     val subject = BehaviorSubject.create<Int>()
     subject.onNext(1)

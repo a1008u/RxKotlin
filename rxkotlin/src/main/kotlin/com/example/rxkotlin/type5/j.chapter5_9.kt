@@ -4,6 +4,16 @@ import io.reactivex.Observable
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.rxkotlin.toObservable
 
+/**
+ * flatMapメソッド
+ * mapメソッドのように元のデータを変換し、その変換したデータを通知するオペレータです。
+ * しかし、flatMapメソッドではmapメソッドと異なり、
+ * 受け取ったデータから複数のデータを持つFlowable／Observableを返すことで、
+ * 1つのデータから複数のデータを通知することが可能になります。
+ *
+ * さらに、空のFlowable／Observableを返すことで特定のデータの通知を止めたり、
+ * エラーのFlowable／Observableを返すことでエラーを通知したりすることが可能になります。
+ */
 fun main(args: Array<String>) {
     val observable = listOf(10,9,8,7,6,5,4,3,2,1).toObservable()
 

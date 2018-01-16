@@ -12,6 +12,18 @@ import java.util.concurrent.TimeUnit
  * Created by AU on 1/10/2018.
  */
 
+/**
+ *
+ * intervalメソッドは指定した通知間隔（インターバル）で0から始まるLong値のデータを通知するFlowable／Observableを生成するオペレータです。
+ * 通知されるデータは「0」「1」「2」と順に通知されていきます。
+ * このintervalメソッドで生成されたFlowable／ObservableはデフォルトでSchedulers.computation()のScheduler上で実行され、
+ * 呼び出し元のスレッドとは異なるスレッド上で実行されます。
+ *
+ * timerメソッドは呼び出されてから指定した時間だけ待機した後、1つのLong値「0」を通知し完了するFlowable／Observableを生成するオペレータです。
+ * このtimerメソッドで生成されたFlowable／ObservableはデフォルトでSchedulers.computation()のScheduler上で実行され、
+ * 呼び出し元のスレッドとは異なるスレッド上で実行されます
+ *
+ */
 fun main(args: Array<String>) {
     val observer: Observer<Any> = object : Observer<Any> {
         override fun onComplete() = println("All Completed")

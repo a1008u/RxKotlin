@@ -7,8 +7,8 @@ fun main(args: Array<String>) {
 
     // filter emissions
     Observable.range(1,20)
-            .filter{ it%2==0 }
-            .subscribe { println("Received $it") }
+              .filter{ it%2==0 }
+              .subscribe { println("Received $it") }
 }
 
 //Received 2
