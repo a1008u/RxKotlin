@@ -13,11 +13,15 @@ import io.reactivex.rxkotlin.toObservable
  *
  * さらに、空のFlowable／Observableを返すことで特定のデータの通知を止めたり、
  * エラーのFlowable／Observableを返すことでエラーを通知したりすることが可能になります。
+ *
+ * 生成されるFlowable／Observableが異なるスレッド上で処理を行い、
+ * 受け取るデータが連続してくる場合、生成したFlowable／Observableが他のFlowable／Observableの処理が終わっているのかどうか関係なく実行され、
+ * それぞれの処理が終わったタイミングで、結果としてのデータが通知されます。
  */
 fun main(args: Array<String>) {
     val observable = listOf(10,9,8,7,6,5,4,3,2,1).toObservable()
 
-    // the flatMap operator creates a new producer(Observable)
+    // the flatMap operator creates a new producer(Observable) 受け取った順位実行
     observable.flatMap { number-> Observable.just("Transforming Int to String $number") }
               .subscribe { item-> println("Received $item") }
 
