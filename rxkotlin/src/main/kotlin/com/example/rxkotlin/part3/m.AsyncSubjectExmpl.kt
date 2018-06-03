@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
     subject.subscribe(
             { println("Received $it") } //onNext
             ,{ it.printStackTrace() } //onError
-            ,{ println("Complete") } //onComplete
+            ,{ println("Complete Complete Complete") } //onComplete
     )
 
     //5

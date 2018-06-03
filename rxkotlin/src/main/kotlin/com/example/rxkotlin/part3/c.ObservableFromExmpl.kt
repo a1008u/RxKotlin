@@ -7,16 +7,20 @@ import java.util.concurrent.Callable
 import java.util.concurrent.Future
 import java.util.concurrent.TimeUnit
 
-
 /**
  * Created by AU on 1/10/2018.
  */
 
 fun main(args: Array<String>) {
 
+    val list2 = mutableListOf<String>()
+
     val observer: Observer<String> = object : Observer<String> {
-        override fun onComplete() = println("All Completed")
-        override fun onNext(item: String) = println("Next $item")
+        override fun onComplete() = println(list2.toString())
+        override fun onNext(item: String) {
+            println("Next $item")
+            list2.add(item)
+        }
         override fun onError(e: Throwable) = println("Error Occured ${e.message}")
         override fun onSubscribe(d: Disposable) = println("New Subscription ")
     }//Create Observer

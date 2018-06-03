@@ -32,15 +32,29 @@ fun main(args: Array<String>) {
         override fun onSubscribe(d: Disposable) = println("New Subscription ")
     }//Create Observer
 
-    Observable.range(1,10).subscribe(observer)//(1)
+    Observable
+        .range(1,10)
+        .subscribe(observer)//(1)
+
     println("---------")
-    Observable.empty<String>().subscribe(observer)//(2)
+
+    Observable
+        .empty<String>()
+        .subscribe(observer)//(2)
 
     println("--------------------")
+
     runBlocking {
-        Observable.interval(300,TimeUnit.MILLISECONDS).subscribe(observer)//(3)
+        Observable
+            .interval(300,TimeUnit.MILLISECONDS)
+            .subscribe(observer)//(3)
+
         delay(900)
-        val subscription = Observable.timer(400,TimeUnit.MILLISECONDS).subscribe(observer)//(4)
+
+        val subscription = Observable
+                .timer(400,TimeUnit.MILLISECONDS)
+                .subscribe(observer)//(4)
+
         delay(450)
     }
 }

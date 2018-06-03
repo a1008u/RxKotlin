@@ -12,11 +12,9 @@ import io.reactivex.subjects.ReplaySubject
  * こちらもキャッシュの送出後はノーマルのSubjectと同様な挙動になります。
  */
 fun main(args: Array<String>) {
-    val subject = ReplaySubject.create<Int>()
+    val subject = ReplaySubject.create<Int>(2)
     subject.onNext(1)
     subject.onNext(2)
-    subject.onNext(3)
-    subject.onNext(4)
 
     subject.subscribe(
         { println("S1 Received $it") } // onNext
@@ -26,13 +24,23 @@ fun main(args: Array<String>) {
 
     println("-----------------------------")
 
-    subject.onNext(5)
+    subject.onNext(3)
 
     subject.subscribe(
-        { println("S2 Received $it") } // onNext
-        ,{ it.printStackTrace() }      // onError
-        ,{ println("S2 Complete") }    // onComplete
+            { println("S2 Received $it") } // onNext
+            ,{ it.printStackTrace() }      // onError
+            ,{ println("S2 Complete") }    // onComplete
     )
+
+    subject.onNext(4)
+    subject.subscribe(
+            { println("S3 Received $it") } // onNext
+            ,{ it.printStackTrace() }      // onError
+            ,{ println("S3 Complete") }    // onComplete
+    )
+
+    subject.onNext(5)
+    subject.onNext(6)
 
     subject.onComplete()
 }

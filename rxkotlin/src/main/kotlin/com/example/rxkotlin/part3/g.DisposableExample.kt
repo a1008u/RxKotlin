@@ -8,6 +8,8 @@ import kotlinx.coroutines.experimental.runBlocking
 import java.util.concurrent.TimeUnit
 
 /**
+ *
+ * subscribeの実行を終了させる
  * Created by AU on 1/11/2018.
  */
 

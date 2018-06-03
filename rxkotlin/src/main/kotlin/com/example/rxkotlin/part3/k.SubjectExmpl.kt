@@ -24,7 +24,10 @@ fun main(args: Array<String>) {
     observable.subscribe(subject)
 
     //4
-    subject.subscribe({ println("Received $it") })
+    subject
+        .doOnNext({ println("do Received $it") })
+        .subscribe({ println("Received $it") })
+    //subject.subscribe({ println("Received $it") })
 
     //5
     runBlocking { delay(1100) }

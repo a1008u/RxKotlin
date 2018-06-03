@@ -18,16 +18,12 @@ fun main(args: Array<String>) {
     val observable = Observable.just(1,2,3,4,5,6,7,8,9)//(1)
 
     observable
-            //(2)
-            .map { MyItem(it) }
-            //(3)
-            .observeOn(Schedulers.computation())
-            //(4)
-            .subscribe({
-                println("Received $it")
-                //(5)
-                runBlocking { delay(200) }
-            })
+        .map { MyItem(it) } //(2)
+        .observeOn(Schedulers.computation()) //(3)
+        .subscribe({
+            println("Received $it") //(4)
+            runBlocking { delay(200) } //(5)
+        })
 
     runBlocking { delay(2000) }//(6)
 }

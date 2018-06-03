@@ -16,6 +16,7 @@ fun main(args: Array<String>) {
     // 3 4
     connectableObservable.map(String::reversed)
                          .subscribe({ println("Subscription 2 $it")})
+
     // 5 これ以降は実施しない
     connectableObservable.connect()
 
